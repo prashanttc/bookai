@@ -1,0 +1,93 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["postgresqlExtensions"]
+}
+
+datasource db {
+  provider   = "postgresql"
+  url        = env("DIRECT_URL")
+  extensions = [uuid_ossp(map: "uuid-ossp", schema: "extensions"), vector]
+}
+
+model User {
+  id           String                @id @default(uuid())
+  name         String
+  email        String                @unique
+  userEmbedding UserEmbedding?
+  savedBooks   SavedBook[]
+  interactions UserBookInteraction[]
+
+}
+
+model Book {
+  id              String                @id @default(uuid())
+  title           String
+  description     String
+  pageCount       Int?
+  coverUrl        String
+  previewLink     String?
+  aiSummary       String?
+  aiQuestions     String[]
+  aiThemes        String[]
+  rating          Float                 @default(0)
+  ratingCount     Int                   @default(0)
+  views           Int                   @default(0)
+  upvotes         Int                   @default(0)
+  createdAt       DateTime              @default(now())
+  googleBookId    String               @unique(map: "Book_openlibraryId_key")
+  publishDate     String?
+  publisher       String?
+  BookEmbedding   BookEmbedding?
+  savedBooks      SavedBook[]
+  interactions    UserBookInteraction[]
+  authors         Author[]              @relation("AuthorToBook")
+  categories      Category[]            @relation("BookToCategory")
+}
+
+model Author {
+  id    String @id @default(uuid())
+  name  String @unique
+  books Book[] @relation("AuthorToBook")
+}
+
+model Category {
+  id    String @id @default(uuid())
+  name  String @unique
+  books Book[] @relation("BookToCategory")
+}
+
+model SavedBook {
+  id        String   @id @default(cuid())
+  userId    String
+  bookId    String
+  createdAt DateTime @default(now())
+  book      Book     @relation(fields: [bookId], references: [id])
+  user      User     @relation(fields: [userId], references: [id])
+
+  @@unique([userId, bookId])
+}
+
+model UserBookInteraction {
+  id        String   @id @default(uuid())
+  userId    String
+  bookId    String
+  timestamp DateTime @default(now())
+  saved     Boolean  @default(false)
+  upvoted   Boolean  @default(false)
+  viewed    Boolean  @default(false)
+  book      Book     @relation(fields: [bookId], references: [id])
+  user      User     @relation(fields: [userId], references: [id])
+
+  @@unique([userId, bookId])
+}
+
+model BookEmbedding {
+  bookId     String                 @id(map: "Embedding_pkey")
+  vector     String?
+  Book       Book                   @relation(fields: [bookId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "Embedding_bookId_fkey")
+}
+model UserEmbedding {
+  userId    String   @id @map("userId")
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  embedding String   @db.Text  // This is actually a vector in the DB
+}
