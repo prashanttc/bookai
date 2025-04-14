@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { getSavedStatus } from '@/actions/getSavedStatus';
 import { hasUserUpvoted } from '@/actions/getupvoteStatus';

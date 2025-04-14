@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { BookOpen, Home, Search, Bookmark, Settings, LogOut } from "lucide-react"
 
 import {
