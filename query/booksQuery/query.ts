@@ -1,3 +1,4 @@
+'use client'
 import { getBookById } from "@/actions/bookdetails";
 import { getDailyFeaturedBooks } from "@/actions/featuredBooks";
 import { getRecommendedBooks } from "@/actions/recommandation";
