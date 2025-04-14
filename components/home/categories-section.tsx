@@ -1,3 +1,4 @@
+"use client";
 import { Card, CardContent } from "@/components/ui/card"
 import type { Categoryy } from "@/types/type"
 

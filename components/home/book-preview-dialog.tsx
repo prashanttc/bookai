@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import Image from "next/image"
 import { ArrowBigRightDash, Bookmark, BookmarkCheck, Heart, SaveAllIcon, ShoppingCart, Star } from "lucide-react"

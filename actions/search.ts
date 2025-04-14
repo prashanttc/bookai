@@ -1,4 +1,4 @@
-'use server';
+"use server";
 import { prisma } from "@/lib/prisma";
 import { generateEmbedding } from "@/lib/embeddingGen";
 import { Book } from "@/types/type";

@@ -1,5 +1,4 @@
-'use server';
-
+"use server";
 import seedrandom from "seedrandom";
 import { prisma } from "@/lib/prisma";
 import {redis} from "@/lib/redis";
