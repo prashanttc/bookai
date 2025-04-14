@@ -86,13 +86,6 @@ body {
     @apply border-border;
   }
 
-  body {
-    @apply bg-background text-foreground;
-    overflow: scroll; /* Enable scrolling */
-    margin-right: -17px; /* Fixes scrollbar space on the right */
-    padding-right: 17px; /* Compensate for the space taken by scrollbar */
-  }
-  
   /* Hide scrollbar for specific container */
   .hide-scrollbar {
     overflow: scroll;

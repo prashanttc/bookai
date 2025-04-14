@@ -13,6 +13,7 @@ import {
 import Link from "next/link"
 import { signOut } from "next-auth/react"
 import { Separator } from "./ui/separator"
+import { Button } from "./ui/button";
 
 export default function AppSidebar() {
   return (
@@ -71,10 +72,10 @@ export default function AppSidebar() {
       </SidebarContent>
       <SidebarFooter>
         <Separator/>
-        <div className="flex mb-5 gap-5 rounded-2xl w-1/2 bg-white text-black" onClick={()=>signOut}>
+        <Button className="flex mb-5 gap-5 rounded-2xl hover:text-white w-1/2 bg-white text-black" onClick={()=>signOut()}>
           <LogOut/>
           logout
-        </div>
+        </Button>
       </SidebarFooter>
     </Sidebar>
   )

@@ -27,7 +27,9 @@ export async function getRecommendedBooks(limit = 10) {
     );
 
     const embeddingStr = dbResult?.[0]?.embedding;
-    if (!embeddingStr) throw new Error("No user embedding found.");
+    if (!embeddingStr){
+      return [];
+    };
 
     try {
       userEmbedding = JSON.parse(embeddingStr);

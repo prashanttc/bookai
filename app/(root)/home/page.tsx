@@ -4,7 +4,7 @@ import type React from "react";
 import { useState } from "react";
 import { HeroSection } from "@/components/home/hero-section";
 import { TrendingSection } from "@/components/home/trending-section";
-import { CategoriesSection } from "@/components/home/categories-section";
+// import { CategoriesSection } from "@/components/home/categories-section";
 import { RecommendationsSection } from "@/components/home/recommendations-section";
 import { FeaturedBooksSection } from "@/components/home/featured-books-section";
 import { BookPreviewDialog } from "@/components/home/book-preview-dialog";
@@ -14,7 +14,7 @@ import {
   useGetBookRecommendations,
   useGetBookTrendings,
 } from "@/query/booksQuery/query";
-import { categories, heroSlides } from "@/constants";
+import { heroSlides } from "@/constants";
 import { TrendingSectionSkeleton } from "@/components/skeletons/trending-section-skeleton";
 import { RecommendationsSectionSkeleton } from "@/components/skeletons/recommendations-section-skeleton";
 import { FeaturedBooksSectionSkeleton } from "@/components/skeletons/featured-books-section-skeleton";
@@ -73,7 +73,7 @@ export default function HomePage() {
           />
         )}
 
-        <CategoriesSection categories={categories} />
+        {/* <CategoriesSection categories={categories} /> */}
       </div>
 
       <BookPreviewDialog
