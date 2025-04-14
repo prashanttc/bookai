@@ -1,3 +1,4 @@
+'use client'
 import type React from "react";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import AppSidebar from "@/components/app-sidebar";
@@ -8,13 +9,14 @@ import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 import SessionProvider from "@/providers/SessionProvider";
 import { ScrollAndCursorHandler } from "@/components/ScrollAndCursor";
+import { getSession } from "next-auth/react";
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const session = await getServerSession();
+  const session = getSession();
   if (!session) {
     redirect("/");
   }
