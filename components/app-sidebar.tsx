@@ -1,5 +1,5 @@
 'use client'
-import { BookOpen, Home, Search, Bookmark, Clock, Settings, LogOut } from "lucide-react"
+import { BookOpen, Home, Search, Bookmark, Settings, LogOut } from "lucide-react"
 
 import {
   Sidebar,
@@ -12,7 +12,6 @@ import {
 } from "@/components/ui/sidebar"
 import Link from "next/link"
 import { signOut } from "next-auth/react"
-import { Button } from "./ui/button"
 import { Separator } from "./ui/separator"
 
 export default function AppSidebar() {

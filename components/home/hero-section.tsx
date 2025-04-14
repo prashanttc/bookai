@@ -37,7 +37,7 @@
                 index === currentSlide ? "opacity-100" : "opacity-0 pointer-events-none"
               }`}
             >
-              <Image src={slide.image || "/placeholder.svg"} alt={slide.title} width={1000} height={1000} className="object-cover w-full h-full" />
+              <Image src={slide.image || "/placeholder.svg"} alt={slide.title} fill className="object-cover " />
               <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-transparent flex items-center">
                 <div className="px-6 md:px-10 max-w-xl text-white">
                   <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">{slide.title}</h1>

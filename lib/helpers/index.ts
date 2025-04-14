@@ -1,4 +1,4 @@
-// lib/api/generateSummary.ts
+'use client'
 export type GenerateSummaryParams = {
     bookId: string;
     title?: string;

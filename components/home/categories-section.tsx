@@ -1,5 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card"
-import type { Category, Categoryy } from "@/types/type"
+import type { Categoryy } from "@/types/type"
 
 interface CategoriesSectionProps {
   categories: Categoryy[]

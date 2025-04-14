@@ -1,7 +1,6 @@
 "use client";
 
 import type React from "react";
-
 import { useState } from "react";
 import { HeroSection } from "@/components/home/hero-section";
 import { TrendingSection } from "@/components/home/trending-section";
