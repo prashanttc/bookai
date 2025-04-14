@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // embeddingModel.ts
 
-import { pipeline } from "@huggingface/transformers";
+import { pipeline } from '@xenova/transformers'
 
 const EMBEDDING_MODEL = "Xenova/all-MiniLM-L6-v2";
 let embeddingPipeline: any = null;
