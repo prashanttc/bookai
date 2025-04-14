@@ -41,7 +41,6 @@ export default function HomePage() {
 
     // Trigger server mutation
     updateInteraction({ bookId, action: "saved" });
-    console.log(updateInteraction)
   };
 
   return (

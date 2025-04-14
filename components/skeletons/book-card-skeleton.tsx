@@ -1,3 +1,4 @@
+'use client'
 import { Skeleton } from "@/components/ui/skeleton"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
 
