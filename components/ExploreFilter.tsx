@@ -28,11 +28,11 @@ export function ExploreFilters({
   selectedSort: string;
 }) {
   return (
-    <div className="flex flex-wrap justify-between items-center bg-background p-4 rounded-xl shadow-sm  mb-6 gap-4">
+    <div className="flex flex-wrap justify-between items-center  p-4 rounded-xl shadow-sm  mb-6 gap-4">
       <div className="flex flex-wrap gap-4">
         {/* Genre Dropdown */}
-        <Select value={selectedGenre} onValueChange={onGenreChange}>
-      <SelectTrigger className="text-sm outline-none border px-4 py-2 w-32">
+        <Select value={selectedGenre} onValueChange={onGenreChange} >
+      <SelectTrigger className="text-sm outline-none border px-4 py-2 w-32 rounded-2xl" >
         <SelectValue placeholder={`Genre: ${selectedGenre}`} />
       </SelectTrigger>
       <SelectContent className="max-h-60 overflow-auto">
@@ -47,7 +47,7 @@ export function ExploreFilters({
         {/* Sort Dropdown */}
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="outline" className="text-sm">
+            <Button variant="outline" className="text-sm rounded-2xl">
               Sort: {selectedSort}
               <ChevronDown className="ml-2 h-4 w-4" />
             </Button>

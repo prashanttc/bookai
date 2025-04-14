@@ -3,6 +3,7 @@ import { getSavedStatus } from '@/actions/getSavedStatus';
 import { hasUserUpvoted } from '@/actions/getupvoteStatus';
 import { updateUserInteraction } from '@/actions/userInteractions';
 import { QUERY_KEYS } from '..';
+import { getSavedBooks } from '@/actions/getsavedBooks';
 
 export function useUpdateInteraction() {
   const queryClient = useQueryClient();
@@ -16,6 +17,7 @@ export function useUpdateInteraction() {
       queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.savedStatus] });
       queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.userinteraction] });
       queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.upvoteStatus] });
+      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.getsavedBooks] });
     },
   });
 }
@@ -31,6 +33,13 @@ export function useUpvoteStatus(bookId: string) {
   return useQuery({
     queryKey: [QUERY_KEYS.upvoteStatus, bookId],
     queryFn: () => hasUserUpvoted(bookId),
+    staleTime: 1000 * 60 * 5, 
+  });
+}
+export function useGetSavedBooks() {
+  return useQuery({
+    queryKey: [QUERY_KEYS.getsavedBooks],
+    queryFn: () => getSavedBooks(),
     staleTime: 1000 * 60 * 5, 
   });
 }

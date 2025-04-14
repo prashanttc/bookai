@@ -7,5 +7,6 @@ export const QUERY_KEYS={
     bookById:"bookById",
     allBooks:"allBooks",
     aisummary:"aisummary",
+    getsavedBooks:"savedbooks",
     bookRecommandations:"bookRecommandations"
 }

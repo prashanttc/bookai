@@ -4,7 +4,6 @@ import { prisma } from "@/lib/prisma";
 
 export async function getBookById(bookId: string) {
   try {
-    console.log("bookid",bookId)
     if (!bookId) {
       throw new Error("bookid required");
     }
