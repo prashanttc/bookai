@@ -15,7 +15,7 @@ export default function RootLayout({
     <html lang="en" >
       <SessionProvider>
         <ReactQueryProvider>
-          <body>
+          <body className="scrollbar-thin">
             <div className="w-screen min-h-screen">
               <main className="flex-1 z-40">{children}</main>
             </div>
