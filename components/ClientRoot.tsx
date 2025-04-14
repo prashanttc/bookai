@@ -13,7 +13,7 @@ export default function ClientRoot({ children }: { children: React.ReactNode }) 
     <SessionProvider>
       <ReactQueryProvider>
         <SidebarProvider>
-          <div className="grid grid-cols-[auto_1fr] overflow-x-hidden min-h-screen bg-main/10 w-screen ">
+          <div className="grid grid-cols-[auto_1fr] overflow-x-hidden min-h-screen bg-gradient-to-r from-white to-main/50 w-screen ">
             <AppSidebar />
             <div className="flex flex-col overflow-x-hidden w-full">
               <AppHeader />
